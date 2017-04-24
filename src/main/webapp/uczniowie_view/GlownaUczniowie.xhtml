@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/Common.xhtml">
+
+            <ui:define name="content">
+
+
+
+                <h:form>
+                    <br/>
+                    <h:button value="Strona Główna" outcome="/view/StronaGlowna"/><br/><br/>
+                    <div id="Uczentabela" style="height: 200px; overflow: auto;">
+                        <h:dataTable value="#{Uczniowie.list}" var="u" styleClass="employeeTable" 
+                                     headerClass="employeeTableHeader"
+                                     rowClasses="employeeTableOddRow,
+                                     employeeTableEvenRow">
+                            <h:column>
+                                <f:facet name="header">IdUcznia</f:facet>
+                                    #{u.iducznia}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Nazwisko</f:facet>
+                                    #{u.nazwisko}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Imie</f:facet>
+                                    #{u.imie}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Data Urodzenia</f:facet>
+                                    #{u.dataurodzenia}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Plec</f:facet>
+                                    #{u.plec}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">idklasy</f:facet>
+                                    #{u.idklasy.idklasy}
+                            </h:column>
+                        </h:dataTable><br/>
+                        <table>
+                            <tr>
+                                <td>Idklasy :</td>
+                                <td><h:inputText size="10" value="#{Uczniowie.idklasy}" /></td>
+                            </tr>
+                            <tr>
+                                <td>Imie :</td>
+                                <td><h:inputText id="imie" size="30" value="#{Uczniowie.imie}" /></td>
+                            </tr>
+                            <tr>
+                                <td>Nazwisko :</td>
+                                <td><h:inputText id="nazwisko" size="30" value="#{Uczniowie.nazwisko}" /></td>
+                            </tr>
+                            <tr>
+                                <td>Data Urodzenia :</td>
+                                <td><h:inputText id="imie" size="30" value="#{Uczniowie.dataUrodzenia}" /></td>
+                            </tr>
+                            <tr>
+                                <td>Plec :</td>
+                                <td><h:inputText id="nazwisko" size="30" value="#{Uczniowie.plec}" /></td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td><h:commandButton value="Dodaj Usera" 
+                                                     action="#{users.insertUser()}" /></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div>
+                        <p:panelGrid columns="2">
+
+                            <p:outputLabel for="console" value="Wybierz rodzaj sortowania:" />
+                            <p:selectOneMenu id="console" value="#{Uczniowie.value}" style="width:125px">
+                                <f:selectItem itemValue="1" itemLabel="Po imieniu" />
+                                <f:selectItem itemValue="2" itemLabel="Po nazwisku"/>
+                                <f:selectItem itemValue="3" itemLabel="Po dacie urodzenia" />
+                                <f:selectItem itemValue="4" itemLabel="Po idklsy"/>
+                            </p:selectOneMenu>
+
+                            <h:outputText value="komunikat: " />
+                            <h:outputText value="#{Uczniowie.komunikat}" />
+
+                        </p:panelGrid>
+                        <h:commandButton value="wyswietl liste" action="#{Uczniowie.readAll()}"/>
+                        <h:commandButton value="sortuj" action="#{Uczniowie.kindofSort()}"/>
+                    </div>
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

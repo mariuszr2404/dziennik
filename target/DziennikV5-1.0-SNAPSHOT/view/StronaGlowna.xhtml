@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/Common.xhtml"
+                        xmlns:p="http://primefaces.org/ui">
+
+            <ui:define name="content">
+                <h:form>
+                    <div id="menubar">
+                            <h:commandButton type="button" value="Strona Głowna" title="Dodaje opis" action="/view/StronaGlowna"/>
+                            <h:button value="Zarzadzaj uczniami" outcome="/uczniowie_view/GlownaUczniowie"/>
+                            <h:commandButton type="button" value="Save"/>
+                            <h:commandButton type="button" value="Delete"/>
+                            <h:commandButton type="button" value="Print"/>
+                            <h:commandButton value="Wyloguj" action="#{Konta.logout()}"/>
+                      
+                    </div><br/><br/>
+                    <div id="headerGlowna">
+                        <h1 align="center">Witaj na Stronie głownej</h1> 
+                    </div>
+
+                    <br/>
+                    <div id="danelogowania">
+                        <p:panelGrid columns="2">
+
+                            <h:outputText value="idnauczyceila: " />
+                            <h:inputText value="#{Nauczyciele.idnauczyciela}"/>
+
+                            <h:outputText value="username: " />
+                            <h:inputText value="#{Nauczyciele.username}"/>
+
+                            <h:outputText value="password: " />
+                            <h:inputText value="#{Nauczyciele.password}"/>
+                        </p:panelGrid> <br/>
+
+                        <h:commandButton action="#{Nauczyciele.sessionResults()}" value="Zobacz swoje dane logowania"/><br/><br/>
+                    </div>
+
+
+                    <div id="ocenytabela" style="height: 200px; overflow: auto;">
+                        <h:dataTable value="#{Oceny.listaALL}" var="oceny" styleClass="employeeTable" 
+                                     headerClass="employeeTableHeader"
+                                     rowClasses="employeeTableOddRow,
+                                     employeeTableEvenRow">
+                            <h:column>
+                                <f:facet name="header">IdOceny</f:facet>
+                                    #{oceny.idoceny}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">IdUcznia</f:facet>
+                                    #{oceny.iducznia.iducznia}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">IdNauczyciela</f:facet>
+                                    #{oceny.idnauczyciela.idnauczyciela}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">IdRodzajuOceny</f:facet>
+                                    #{oceny.idrodzajuOceny.idrodzajuOceny}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Ocena</f:facet>
+                                    #{oceny.ocena}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Data_Wystawienia</f:facet>
+                                    #{oceny.datawystawienia}
+                            </h:column>
+                        </h:dataTable>
+
+                        
+                        
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

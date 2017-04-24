@@ -1,0 +1,149 @@
+
+#head {
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 5px 0px;
+    height: 100px;
+}
+
+#footer {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 5px 0px 0px 0px;
+    height:100px;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+    height:750px
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#head a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#head a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+#indexBean
+{  
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 500px;
+    margin-top: 100px;
+}
+
+#indexHeader
+{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#indexBeanP
+{
+    text-align: center;
+}
+
+.link_rejestracja{
+    font-size: 1px;
+    color: red;
+    text-align: left;
+}
+
+#rejestracja
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#panelRejestracja
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.employeeTable{   
+   border-collapse:collapse;
+   border:1px solid #000000;
+}
+
+.employeeTableHeader{
+   text-align:center;
+   background:none repeat scroll 0 0 #B5B5B5;
+   border-bottom:1px solid #000000;  
+   padding:2px;
+}
+
+.employeeTableOddRow{
+   text-align:center;
+   background:none repeat scroll 0 0 #FFFFFF;	
+}
+
+.employeeTableEvenRow{
+   text-align:center;
+   background:none repeat scroll 0 0 #D3D3D3;
+}
+
+#danelogowania{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 3px;
+    width: 300px;
+}
+
+#logo{
+  margin-left: 30px;
+  margin-right: auto; 
+}
+
+#menubar{
+    margin-left:10px;
+}
+
+#headerGlowna{
+    margin-top: 20px;
+}
